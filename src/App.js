@@ -11,37 +11,39 @@ import { setBannerData, setImageURL } from './store/movieoSlice';
 function App() {
   const dispatch = useDispatch();
 
-  const fetchTrendingData = async () => {
+  const fetchTrendingData = async()=>{
     try {
-      const response = await axios.get('/trending/all/week');
-      dispatch(setBannerData(response.data.results));
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
+        const response = await axios.get('/trending/all/week')
 
-  const fetchConfiguration = async () => {
+        dispatch(setBannerData(response.data.results))
+    } catch (error) {
+        console.log("error",error)
+    }
+  }
+
+  const fetchConfiguration = async()=>{
     try {
-      const response = await axios.get("/configuration");
-      dispatch(setImageURL(response.data.images.secure_base_url + "original"));
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
+        const response = await axios.get("/configuration")
 
-  useEffect(() => {
-    fetchTrendingData();
-    fetchConfiguration();
-  }, []);
+        dispatch(setImageURL(response.data.images.secure_base_url+"original"))
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(()=>{
+    fetchTrendingData()
+    fetchConfiguration()
+  },[])
 
   return (
     <main className='pb-14 lg:pb-0'>
-      <Header />
-      <div className='min-h-[90vh]'>
-        <Outlet />
-      </div>
-      <Footer />
-      <MobileNavigation />
+        <Header/>
+        <div className='min-h-[90vh]'>
+            <Outlet/>
+        </div>
+        <Footer/>
+        <MobileNavigation/>
     </main>
   );
 }

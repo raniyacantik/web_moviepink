@@ -67,7 +67,7 @@ const BannerHome = () => {
                                         <p>Penonton: {Number(data.popularity).toFixed(0)}</p>
                                     </div>
                                     <Link to={"/" + data?.media_type + "/" + data.id}>
-                                        <button className='bg-pink-600 px-4 py-2 text-white font-bold rounded mt-4 hover:bg-pink-700 transition-all'>
+                                        <button className='bg-gradient-to-r from-pink-600 to-purple-500  px-4 py-2 text-white font-bold rounded mt-4 hover:bg-gradient-to-r from-pink-700 to-purple-600  transition-all'>
                                             Nonton Sekarang
                                         </button>
                                     </Link>
